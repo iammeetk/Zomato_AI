@@ -4,5 +4,11 @@
       "src": "frontend-next/package.json",
       "use": "@vercel/next"
     }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/frontend-next/$1"
+    }
   ]
 }
