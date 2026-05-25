@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --zomato-red: #e23744;
+}
+
+body {
+  @apply min-h-screen bg-gray-100 text-gray-900 antialiased;
+}
+
+.hero-bg {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)),
+    url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1920&q=80")
+      center / cover no-repeat;
+}

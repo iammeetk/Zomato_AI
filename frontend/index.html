@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourmet AI | Restaurant Recommendations</title>
+    <meta name="description" content="AI-powered restaurant recommendations — end-to-end demo UI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="background-blobs" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header class="header">
+            <div class="header-row">
+                <div>
+                    <h1>Gourmet AI</h1>
+                    <p>End-to-end test UI for the recommendation API (Phases 2–4).</p>
+                </div>
+                <div id="api-status" class="api-status api-status--loading" role="status" aria-live="polite">
+                    Checking API…
+                </div>
+            </div>
+        </header>
+
+        <section class="glass-panel form-section">
+            <form id="preferences-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="location">City / Location</label>
+                        <input type="text" id="location" name="location" list="locality-list"
+                            placeholder="e.g. Bangalore, BTM, Banashankari" required autocomplete="off">
+                        <datalist id="locality-list"></datalist>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">Budget</label>
+                        <select id="budget" name="budget" required>
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cuisine">Cuisines (comma separated)</label>
+                        <input type="text" id="cuisine" name="cuisine" placeholder="e.g. Chinese, North Indian"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="min_rating">Minimum rating (0–5)</label>
+                        <input type="number" id="min_rating" name="min_rating" min="0" max="5" step="0.1" value="4.0"
+                            required>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="additional_preferences">Special requests (optional)</label>
+                    <textarea id="additional_preferences" name="additional_preferences" rows="2"
+                        placeholder="e.g. family-friendly, outdoor seating"></textarea>
+                </div>
+
+                <button type="submit" id="submit-btn" class="btn-primary">
+                    <span class="btn-text">Get recommendations</span>
+                    <span class="loader hidden" id="btn-loader" aria-hidden="true"></span>
+                </button>
+            </form>
+        </section>
+
+        <section id="results-section" class="results-section hidden">
+            <div id="results-meta" class="results-meta hidden"></div>
+            <p id="results-summary" class="results-summary hidden"></p>
+            <h2 class="results-title">Recommendations</h2>
+            <div id="results-container" class="results-grid"></div>
+            <div id="error-message" class="error-message hidden" role="alert"></div>
+            <p class="disclaimer">
+                Suggestions use the ingested Zomato dataset and Groq when configured. Verify details before visiting.
+            </p>
+        </section>
+    </main>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>

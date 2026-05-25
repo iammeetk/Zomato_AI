@@ -1,0 +1,22 @@
+{
+  "schema_version": "2",
+  "hf_dataset": "ManikaSaini/zomato-restaurant-recommendation",
+  "hf_revision": null,
+  "row_count": 51717,
+  "parquet_path": "C:\\Users\\DELL\\Desktop\\M1\\data\\processed\\restaurants.parquet",
+  "manifest_path": "C:\\Users\\DELL\\Desktop\\M1\\data\\processed\\manifest.json",
+  "generated_at": "2026-05-25T06:22:04.031866+00:00",
+  "null_rates": {
+    "restaurant_id": 0.0,
+    "name": 0.0,
+    "city": 0.0,
+    "metro": 0.0,
+    "locality": 0.0,
+    "area": 0.0,
+    "cuisines": 0.0,
+    "aggregate_rating": 0.19436548910416304,
+    "cost_for_two": 0.00669025658874258,
+    "budget_band": 0.0,
+    "additional_signals_json": 0.0
+  }
+}
