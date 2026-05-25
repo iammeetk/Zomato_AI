@@ -2,8 +2,8 @@
 
 from pathlib import Path
 
-# Repository root (parent of src/)
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+# Repository root (cwd is safe for Streamlit Cloud and local runs from root)
+PROJECT_ROOT = Path.cwd()
 FRONTEND_DIR = PROJECT_ROOT / "frontend"
 
 DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "data" / "processed"
