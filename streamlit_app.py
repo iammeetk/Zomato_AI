@@ -56,3 +56,13 @@ if service.is_loaded:
                     st.error(f"Error during recommendation: {e}")
 else:
     st.warning("Service is not loaded. Please ensure dataset is ingested.")
+    if st.button("Run Ingestion Now"):
+        from restaurant_rec.phase1.ingest import run_ingest
+        with st.spinner("Downloading and processing dataset (this may take a minute)..."):
+            try:
+                run_ingest()
+                st.success("Ingestion complete. Please refresh or interact with the app again.")
+                st.cache_resource.clear()
+                st.rerun()
+            except Exception as e:
+                st.error(f"Ingestion failed: {e}")
